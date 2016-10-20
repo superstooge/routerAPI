@@ -46,7 +46,6 @@ will
     3. call the `performAction` method, passing the `action` identifier, some data object to be sent to the API endpoint and a reference to a callback method, that will receive the API response.
 
 
-**This readme is just a quick draft. Detailed readme coming soon. Please be patient!** :)
 
 [Demo here](http://fcarbone.info/routerapi/ "RouterAPI Demo")
 
@@ -57,3 +56,12 @@ The demo will call:
     3. Facebook public API (user details - read only)
     
 The demo **will launch popups to request access permissions** (Google/Facebook). Please allow popups for the domain.
+
+
+## Credits
+Coming soon
+
+
+
+**This readme is just a quick draft. Detailed readme coming soon. Please be patient!** :)
+
