@@ -136,7 +136,7 @@ Save this code (let's say in the same folder where `routerapi.js` sits). Then in
 
 The demo will call:
 
-    1. Google urlshortener API, shortening fcarbone.info
+    1. Google urlshortener API, shortening "http://fcarbone.info"
     2. Google Calendar API (current events list)
     3. Facebook public API (user details - read only)
     
