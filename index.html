@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Router API Test</title>
+    <!-- <script src="min/routerapi.min.js" charset="utf-8"></script> -->
+    <script src="routerapi.js" charset="utf-8"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+      .spacer{
+        min-height: 50px;
+      }
+
+      .out{
+        padding: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      pre {
+        background-color: inherit;;
+        color: inherit;
+        border: 0px;
+      }
+    </style>
+
+
+  </head>
+  <body>
+
+
+    <div class="container">
+      <div class="lead">
+        Router API middleware demo
+      </div>
+      <div class="row">
+        <div id="out1" class="out  btn-info col-xs-12">
+          <span class="lead">test Google urlshortener API </span><br>
+          <b>endpoint:</b> "Google urlshortener API (oAuth)" <br>
+          <b>requestformat:</b> "JSON" <br>
+          <b>responseformat:</b> "JSON" <br>
+        </div>
+      </div>
+
+      <div class="row spacer"></div>
+      <div class="row">
+        <div id="out2" class="out  btn-info col-xs-12">
+          <span class="lead">test Google Calendar API</span><br>
+
+          <b>endpoint:</b> Google Calendar API (oAuth) <br>
+          <b>requestformat:</b> "urlembedded" <br>
+          <b>responseformat:</b> "JSON" <br>
+        </div>
+      </div>
+
+      <div class="row spacer"></div>
+      <div class="row">
+        <div id="out3" class="out  btn-info col-xs-12">
+          <span class="lead">test Facebook API </span><br>
+          <b>endpoint:</b> Facebook API (User info) <br>
+          <b>requestformat:</b> "JSON" <br>
+          <b>responseformat:</b> "JSON" <br>
+
+        </div>
+      </div>
+
+      <div class="row spacer"></div>
+      <div class="row">
+        <div id="out4" class="out  btn-info col-xs-12">
+          <span class="lead">testAction 2 </span><br>
+          <b>endpoint:</b> "http://localhost/routerapi/fakeapi_XML.php" <br>
+          <b>requestformat:</b> "XML" <br>
+          <b>responseformat:</b> "XML" <br>
+
+        </div>
+      </div>
+
+      <div class="row spacer"></div>
+    </div>
+
+    <script type="text/javascript">
+
+    var jsondata = [{
+        "id": "webservice",
+        "action": "engie"
+      }, {
+        "id": 2,
+        "username": "Adam",
+        "password": "jh4kj5h4kjhf348!@kjbdf"
+      }, {
+        "id": 1,
+        "first_name": "Douglas",
+        "last_name": "Moreno",
+        "email": "dmoreno0@gravatar.com",
+        "gender": "Male",
+        "ip_address": "93.227.231.87"
+      }, {
+        "id": 2,
+        "first_name": "Arthur",
+        "last_name": "Lewis",
+        "email": "alewis1@about.me",
+        "gender": "Male",
+        "ip_address": "52.136.72.70"
+      }, {
+        "id": 3,
+        "first_name": "Kathleen",
+        "last_name": "Hughes",
+        "email": "khughes2@yellowbook.com",
+        "gender": "Female",
+        "ip_address": "26.74.72.111"
+      }]
+
+      var gdata = {
+        'longUrl': "http://fcarbone.info",
+        'shortUrl':'https://goo.gl/OCTXnf'
+      }
+
+      var gcalendar = {
+          'calendarId': 'primary',
+          'timeMin': (new Date()).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          'maxResults': 10,
+          'orderBy': 'startTime'
+        }
+
+      //RouterAPI.performAction("testAction1", data, onResponse);
+      var r1 = new RouterAPI();
+
+      r1.performAction("testGoogle", gdata, onResponse1);
+      //r1.performAction("FacebookAPI", gdata, onResponse1);
+
+      const PRE = '<span class="lead">Server response (translated to JSON, where necessary): </span><br><PRE>';
+      function onResponse1(data) {
+        document.getElementById('out1').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>';
+        r1.performAction("GoogleCalendarListEvents", gcalendar, onResponse2);
+      }
+      function onResponse2(data) {
+        document.getElementById('out2').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>';
+        r1.performAction("FacebookAPI", null, onResponse3);
+      }
+      function onResponse3(data) {
+        //console.log("onResponse3", data3);
+        document.getElementById('out3').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>' + '</PRE>';
+        r1.performAction("testAction2", jsondata, onResponse4);
+      }
+      function onResponse4(data) {
+        document.getElementById('out4').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>';
+
+      }
+    </script>
+
+  </body>
+</html>
