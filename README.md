@@ -116,7 +116,7 @@ RouterAPI will create an instance of the module using the **new** keyword and th
 
 })()
 ```
-Save this code (let's say in the same folder where `routerapi.js` sits). Then in your JSON file you may write the following:
+Save this code (create a `my_mod.js` file, let's say in the same folder where `routerapi.js` sits). Then in your JSON file you may write the following:
 
 ```
 {
@@ -124,11 +124,12 @@ Save this code (let's say in the same folder where `routerapi.js` sits). Then in
     "action": "MyModule",
     "mod":"my_mod.js",
     "namespace":"my_mod",
+    "myCustomProperty":"myCustomValue",
     "requestformat": "JSON",
     "responseformat": "JSON"
 }
 ```
-
+Besides the ones you should already be familiar with (`id`, `action`, `requestformat`, `responseformat`) and `namespace` (which **MUST match your module's constructor name!**), all other properties (i.e. `myCustomProperty`) defined in the JSON object will be passed to the module instance and made available in it, to implement custom logic (i.e. an API clientId to implement authentication)
 
 ## Demo
 
