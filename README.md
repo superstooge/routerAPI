@@ -48,7 +48,8 @@ will
 
 **This readme is just a quick draft. Detailed readme coming soon. Please be patient!** :)
 
-["Demo here"](http://fcarbone.info/routerapi/ "RouterAPI Demo")
+[Demo here](http://fcarbone.info/routerapi/ "RouterAPI Demo")
+
 The demo will call:
 
     1. Google urlshortener API, shortening fcarbone.info
