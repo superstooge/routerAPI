@@ -40,6 +40,7 @@ var r1 = new RouterAPI("path/to/JSON_file.json");
 r1.performAction("myActionName", myData, myResponseCallBack);
 ```
 will
+
     1. create an instance of RouterAPI
     2. load the JSON dictionary file located in `path/to/JSON_file.json`
     3. call the `performAction` method, passing the `action` identifier, some data object to be sent to the API endpoint and a reference to a callback method, that will receive the API response.
@@ -49,7 +50,9 @@ will
 
 ["Demo here"](http://fcarbone.info/routerapi/ "RouterAPI Demo")
 The demo will call:
+
     1. Google urlshortener API, shortening fcarbone.info
     2. Google Calendar API (current events list)
     3. Facebook public API (user details - read only)
+    
 The demo **will launch popups to request access permissions** (Google/Facebook). Please allow popups for the domain.
