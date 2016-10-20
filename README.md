@@ -1,6 +1,13 @@
 # routerAPI
 JavaScript library to handle API calls to multiple endpoints based on a JSON descriptor.
 
+## Scenario
+* You are building your web page and you need to access multiple APIs, on different server
+* Each API expects data in a certain format: JSON, XML, urlencoded, or embedded in the url itself (REST APIs)
+* Some APIs expect specific information that you may only retrieve from yet another API, that does not *speak* the same language (i.e. **API-1** gives you the user location / **API-2** provides weather information based on the location)
+
+RouterAPI provides functionality to make all the calls keeping the same data type in the frontend (JSON) without having to deal with different data types for each API endpoint. 
+
 ## How does it work?
 The `routerAPI` reads a *dictionary* JSON file, describing a number of *actions*. Each action corresponds to an API to call. A sample JSON dictionary looks like this:
 ```
@@ -8,8 +15,8 @@ The `routerAPI` reads a *dictionary* JSON file, describing a number of *actions*
     "id": 1,
     "action": "myActionName",
     "endpoint": "http://myapi/endpoint/",
-    "requestformat": "JSON",
-    "responseformat": "JSON"
+    "requestformat": "XML",
+    "responseformat": "XML"
 }]
 ```
 **The properties are:**
@@ -43,7 +50,10 @@ will
 
     1. create an instance of RouterAPI
     2. load the JSON dictionary file located in `path/to/JSON_file.json`
-    3. call the `performAction` method, passing the `action` identifier, some data object to be sent to the API endpoint and a reference to a callback method, that will receive the API response.
+    3. transform `myData` into an XML object
+    4. call the `performAction` method, passing the `action` identifier, the `myData` translated object and a callback method
+    5. the translated `myData` will be sent to the API endpoint (`http://myapi/endpoint/`). *Remember that this API expects/returns only **XML data**)*
+    6. the API response will be translated to JSON and sent to the callBack (`myResponseCallBack`)
 
 
 
