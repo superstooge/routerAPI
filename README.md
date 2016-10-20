@@ -48,12 +48,12 @@ r1.performAction("myActionName", myData, myResponseCallBack);
 ```
 will
 
-    1. create an instance of RouterAPI
-    2. load the JSON dictionary file located in `path/to/JSON_file.json`
-    3. transform `myData` into an XML object
-    4. call the `performAction` method, passing the `action` identifier, the `myData` translated object and a callback method
-    5. the translated `myData` will be sent to the API endpoint (`http://myapi/endpoint/`). *Remember that this API expects/returns only **XML data**)*
-    6. the API response will be translated to JSON and sent to the callBack (`myResponseCallBack`)
+* create an instance of RouterAPI
+* load the JSON dictionary file located in `path/to/JSON_file.json`
+* transform `myData` into an XML object
+* call the `performAction` method, passing the `action` identifier, the `myData` translated object and a callback method
+* the translated `myData` will be sent to the API endpoint (`http://myapi/endpoint/`). *Remember that this API expects/returns only **XML data**)*
+* the API response will be translated to JSON and sent to the callBack (`myResponseCallBack`)
 
 
 
