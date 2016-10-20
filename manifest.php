@@ -31,7 +31,7 @@
 }, {
     "id": 6,
     "action": "testGoogle",
-    "mod":"mod/google_mod_class.js",
+    "mod":"mod/google_mod.js",
     "namespace":"google_mod",
     "apiKey":"AIzaSyDKInslrnSodGk0G_kGLfCTimYrn_vDpTA",
     "apiMethod":"urlshortener.url.get",
