@@ -140,6 +140,7 @@ The demo will call:
     1. Google urlshortener API, shortening "http://fcarbone.info"
     2. Google Calendar API (current events list)
     3. Facebook public API (user details - read only)
+    4. A "fake" XML-speaking API that resides on the same domain and that returns the incoming input as a response (illustrates the library's translation feature: JSON-XML-JSON)
     
 The demo **will launch popups to request access permissions** (Google/Facebook). Please allow popups for the domain.
 
