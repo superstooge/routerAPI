@@ -1,4 +1,4 @@
-# routerAPI
+# RouterAPI
 JavaScript library to handle API calls to multiple endpoints based on a JSON descriptor.
 
 ## Scenario
