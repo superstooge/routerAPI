@@ -64,7 +64,7 @@ In your JSON manifest, for both `requestformat` and `responseformat` the accepte
 * XML
 * urlembedded
 
-The first three types are just assigned to the property (as in the previous snippet), but when you set it to urlembedded, there are additional steps to perform. In this case, an example is worth a thousands words.
+The first three types are just assigned to the property (as in the previous snippet), but when you set it to urlembedded, there are additional steps to perform. In this case, an example is worth a thousand words.
 
 **This is your JSON manifest**
 
