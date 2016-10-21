@@ -145,10 +145,10 @@ The demo **will launch popups to request access permissions** (Google/Facebook).
 
 
 ## Credits
-Some of the functions translating data are based on code published on Stackoverflow. I will add links to the pages I got the code from. Gotta give credit where credit is due.
+Some of the functions translating data are based on code published on Stackoverflow/GitHub. Below are links to the pages I got the code from. Gotta give credit where credit is due.
 * [XML to JSON conversion](http://stackoverflow.com/questions/7769829/tool-javascript-to-convert-a-xml-string-to-json)
 * [urlencoded to JSON](http://stackoverflow.com/questions/4671985/how-to-convert-an-x-www-form-urlencoded-string-to-json)
 * [JSON to XML](https://github.com/umurgdk/sufiyane/blob/master/modules/json2xml.js~)
 
-**This readme is just a quick draft. Detailed readme coming soon. Please be patient!** :)
+
 
