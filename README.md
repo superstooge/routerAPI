@@ -66,7 +66,7 @@ In your JSON manifest, for both `requestformat` and `responseformat` the accepte
 
 The first three types are just assigned to the property (as in the previous snippet), but when you set it to urlembedded, there are additional steps to perform. In this case, an example is worth a thousands words.
 
-** This is your JSON manifest **
+**This is your JSON manifest**
 
 ```
 [{
@@ -78,7 +78,7 @@ The first three types are just assigned to the property (as in the previous snip
 }]
 ```
 
-** this is your code in the page **
+**this is your code in the page**
 
 ```
 var myData = {"action":"profile", "id":"20"};
@@ -91,7 +91,7 @@ var r1 = new RouterAPI("path/to/JSON_file.json");
 r1.performAction("myActionName", myData, myResponseCallBack);
 ```
 
-Note how the properties in `myData` match keywords in the JSON `endpoint` ?
+Noticed how the properties in `myData` match keywords in the JSON `endpoint`?
 Since we are calling a RESTful API, the endpoint will be manipulated, based on the properties of `myData` that match any `{{keyword}}` in the JSON endpoint.
 In this example, the resulting url is:
     `http://myapi/endpoint/profile/20/`
@@ -145,9 +145,10 @@ The demo **will launch popups to request access permissions** (Google/Facebook).
 
 
 ## Credits
-Coming soon
-
-
+Some of the functions translating data are based on code published on Stackoverflow. I will add links to the pages I got the code from. Gotta give credit where credit is due.
+* [XML to JSON conversion](http://stackoverflow.com/questions/7769829/tool-javascript-to-convert-a-xml-string-to-json)
+* [urlencoded to JSON](http://stackoverflow.com/questions/4671985/how-to-convert-an-x-www-form-urlencoded-string-to-json)
+* [JSON to XML](https://github.com/umurgdk/sufiyane/blob/master/modules/json2xml.js~)
 
 **This readme is just a quick draft. Detailed readme coming soon. Please be patient!** :)
 
