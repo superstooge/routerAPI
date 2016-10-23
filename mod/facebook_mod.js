@@ -10,7 +10,7 @@
             xfbml: true, // parse social plugins on this page
             version: 'v2.5' // use graph api version 2.5
         });
-        checkAuth(makeRequest.bind(this))
+        checkAuth.call(this, makeRequest.bind(this))
     }
 
     function checkAuth(cb) {
@@ -24,7 +24,7 @@
             } else {
                 cb();
             }
-        });
+        }.bind(this));
 
     }
 
