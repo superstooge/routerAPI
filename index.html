@@ -35,7 +35,7 @@
       </div>
       <div class="row">
         <div id="out1" class="out  btn-info col-xs-12">
-          <span class="lead">test Google urlshortener API </span><br>
+          <span class="lead">test YouTube API (search by keyword "superstooge")</span><br>
           <b>endpoint:</b> "Google urlshortener API (oAuth)" <br>
           <b>requestformat:</b> "JSON" <br>
           <b>responseformat:</b> "JSON" <br>
@@ -124,11 +124,20 @@
           'orderBy': 'startTime'
         }
 
+        var fbdata = {
+          "fields":"name, age_range, picture, link"
+        }
+
+        var ytdata = {
+          q:"superstooge",
+          part:"snippet"
+        }
+
       //RouterAPI.performAction("testAction1", data, onResponse);
       var r1 = new RouterAPI();
 
-      r1.performAction("testGoogle", gdata, onResponse1);
-      //r1.performAction("FacebookAPI", gdata, onResponse1);
+      //r1.performAction("testGoogle", gdata, onResponse1);
+      r1.performAction("YoutubeAPI", ytdata, onResponse1);
 
       const PRE = '<span class="lead">Server response (translated to JSON, where necessary): </span><br><PRE>';
       function onResponse1(data) {
@@ -137,7 +146,7 @@
       }
       function onResponse2(data) {
         document.getElementById('out2').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>';
-        r1.performAction("FacebookAPI", null, onResponse3);
+        r1.performAction("FacebookAPI", fbdata, onResponse3);
       }
       function onResponse3(data) {
         //console.log("onResponse3", data3);

@@ -66,6 +66,17 @@
     "scope":"public_profile,email",
     "requestformat": "JSON",
     "responseformat": "JSON"
+}, {
+    "id": 9,
+    "action": "YoutubeAPI",
+    "mod":"mod/google_mod.js",
+    "namespace":"google_mod",
+    "apiKey":"AIzaSyDKInslrnSodGk0G_kGLfCTimYrn_vDpTA",
+    "apiMethod":"youtube.search.list",
+    "apiVersion":"v3",
+    "scopes":"https://www.googleapis.com/auth/youtube",
+    "requestformat": "JSON",
+    "responseformat": "JSON"
 }
 
 

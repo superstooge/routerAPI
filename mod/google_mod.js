@@ -42,7 +42,7 @@
         } else {
             gapi.client.setApiKey(this.options.apiKey);
             gapi.client.load(this.options.apiName, this.options.apiVersion).then(function() {
-                makeRequest(this.options.data);
+                makeRequest.call(this,this.options.data);
             }.bind(this));
         }
 

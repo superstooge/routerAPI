@@ -38,19 +38,14 @@
         if (this.options.apiMethod) {
             args.push(this.options.apiMethod)
         }
-        if (this.options.apiParams) {
-            args.push(this.options.apiParams)
-        }
+        args.push(this.options.data)
         args.push(this.options.callBack)
         FB.api.apply(this, args);
     }
 
     facebook_mod.prototype.initialize = function(options) {
         this.options = options;
-        if (this.options.apiParams) {
-            this.options.apiParams = JSON.parse(this.options.apiParams);
-        }
-        if (this.data) {
+        if (this.options.data) {
             this.options.data = JSON.parse(this.options.data);
         }
         this.scriptUrl = "//connect.facebook.net/{{lang}}/sdk.js".replace("{{lang}}", this.options.lang);
