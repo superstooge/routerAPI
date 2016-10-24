@@ -137,7 +137,7 @@ Besides the ones you should already be familiar with (`id`, `action`, `requestfo
 
 The demo will call:
 
-    1. Google urlshortener API, shortening "http://fcarbone.info"
+    1. YouTube data API, performing a video search for "superstooge"
     2. Google Calendar API (current events list)
     3. Facebook public API (user details - read only)
     4. A "fake" XML-speaking API that resides on the same domain and that returns the incoming input as a response (illustrates the library's translation feature: JSON-XML-JSON)
