@@ -26,18 +26,24 @@
 
     function onAuth2(authResult) {
       if (authResult) {
-        gapi.auth2.getAuthInstance().signIn().then(function () {
-          var request = gapi.client.load(this.options.apiName, this.options.apiVersion).then(function() {
-              clearInterval(this.getSignedInInterval);
-              makeRequest.call(this, this.options.data);
-          }.bind(this));
-        }.bind(this))
-        this.getSignedInInterval = setInterval(getSignedInState.bind(this), 1000)
+        if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
+          loadModule.call(this)
+        } else {
+          gapi.auth2.getAuthInstance().signIn().then(loadModule.bind(this))
+          this.getSignedInInterval = setInterval(getSignedInState.bind(this), 1000)
+        }
       } else {
         this.options.callBack(authResult);
         console.error("Google oAuth authentication failed");
       }
 
+    }
+
+    function loadModule() {
+        var request = gapi.client.load(this.options.apiName, this.options.apiVersion).then(function() {
+            clearInterval(this.getSignedInInterval);
+            makeRequest.call(this, this.options.data);
+        }.bind(this));
     }
 
     function onAuth(authResult) {
@@ -71,9 +77,13 @@
               'immediate': this.options.immediate || false
           }
           if (this.options.forceAuth1) {
-            gapi.auth.authorize(authData, onAuth.bind(this));
+              gapi.auth.authorize(authData, onAuth.bind(this));
           } else {
+            if (gapi.auth2.getAuthInstance()) {
+              onAuth2.call(this, true);
+            } else {
             gapi.auth2.init(authData).then(onAuth2.bind(this))
+            }
           }
 
         } else {
