@@ -77,6 +77,19 @@
     "scopes":"https://www.googleapis.com/auth/youtube",
     "requestformat": "JSON",
     "responseformat": "JSON"
+}, {
+    "id": 10,
+    "action": "AnalyticsAPI",
+    "mod":"mod/google_mod.js",
+    "namespace":"google_mod",
+    "apiKey":"AIzaSyDKInslrnSodGk0G_kGLfCTimYrn_vDpTA",
+    "clientId":"574205967969-qe2gmjk663ql5asb8vjaqmh5v7ao4hgj.apps.googleusercontent.com",
+    "apiMethod":"analytics.management.accounts.list",
+    "apiVersion":"v3",
+    "forceAuth1":"true",
+    "scopes":"https://www.googleapis.com/auth/analytics.readonly",
+    "requestformat": "JSON",
+    "responseformat": "JSON"
 }
 
 

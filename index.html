@@ -152,6 +152,8 @@
         //console.log("onResponse3", data3);
         document.getElementById('out3').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>' + '</PRE>';
         r1.performAction("testAction2", jsondata, onResponse4);
+        //r1.performAction("AnalyticsAPI", {}, onResponse4);
+
       }
       function onResponse4(data) {
         document.getElementById('out4').innerHTML += PRE + JSON.stringify(data, null, 2) + '</PRE>';

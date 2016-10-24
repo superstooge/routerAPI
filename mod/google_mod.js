@@ -24,7 +24,7 @@
         });
     }
 
-    function onAuth(authResult) {
+    function onAuth2(authResult) {
       if (authResult) {
         gapi.auth2.getAuthInstance().signIn().then(function () {
           var request = gapi.client.load(this.options.apiName, this.options.apiVersion).then(function() {
@@ -33,6 +33,19 @@
           }.bind(this));
         }.bind(this))
         this.getSignedInInterval = setInterval(getSignedInState.bind(this), 1000)
+      } else {
+        this.options.callBack(authResult);
+        console.error("Google oAuth authentication failed");
+      }
+
+    }
+
+    function onAuth(authResult) {
+      if (authResult) {
+        var request = gapi.client.load(this.options.apiName, this.options.apiVersion).then(function() {
+            clearInterval(this.getSignedInInterval);
+            makeRequest.call(this, this.options.data);
+        }.bind(this));
       } else {
         this.options.callBack(authResult);
         console.error("Google oAuth authentication failed");
@@ -52,16 +65,17 @@
     function init() {
 
         if (this.options.clientId !== undefined) {
-            // gapi.auth.authorize({
-            //     'client_id': this.options.clientId,
-            //     'scope': this.options.scopes,
-            //     'immediate': this.options.immediate || false
-            // }, onAuth.bind(this));
-            gapi.auth2.init({
-                'client_id': this.options.clientId,
-                'scope': this.options.scopes,
-                'immediate': this.options.immediate || false
-            }).then(onAuth.bind(this))
+          var authData = {
+              'client_id': this.options.clientId,
+              'scope': this.options.scopes,
+              'immediate': this.options.immediate || false
+          }
+          if (this.options.forceAuth1) {
+            gapi.auth.authorize(authData, onAuth.bind(this));
+          } else {
+            gapi.auth2.init(authData).then(onAuth2.bind(this))
+          }
+
         } else {
             gapi.client.setApiKey(this.options.apiKey);
             gapi.client.load(this.options.apiName, this.options.apiVersion).then(function() {
